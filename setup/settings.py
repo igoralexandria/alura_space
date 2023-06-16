@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galeria.apps.GaleriaConfig',
-    'usuarios.apps.UsuariosConfig',
+
+    'apps.galeria.apps.GaleriaConfig',
+    'apps.usuarios.apps.UsuariosConfig',
 
 ]
 
@@ -138,3 +140,8 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+}
